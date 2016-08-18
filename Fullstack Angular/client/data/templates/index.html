@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default infoPanel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4 infoPanel"  ng-repeat="p in vm.data track by $index" style="background-color: {{ p.color }};">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title text-center" style="color: {{ p.color }}; letter-spacing: 1px;">{{ p.variables.is_reference ? "REFERENCE AREA" : "COMPARED AREA " + $index }}</h1>
+                            </div>
+                            <div class="panel-body" style="background-color: {{ p.color }}">
+                                <p class="lead text-center">{{ p.variables.population | number }}</p>
+                                <p class="text-center population">Population</p>
+                            </div>
+                            <div class="panel-footer">
+                                <p class="text-center">{{ p.address }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title legend_title">General graph comparision</h3>
+            </div>
+            <div class="panel-body panel_graph">
+                <div class="row panel_graph">
+                    <div class="col-md-8 panel_border">
+                        <section name="chart">
+                            <span class="glyphicon glyphicon-download-alt pull-right" aria-hidden="true"></span>
+                            <chart chart-radar='vm.data'></chart>
+                        </section>
+                    </div>
+                    <div class="col-md-4 panel_legend"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
